@@ -1,26 +1,10 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
 import Profile from './components/Profile.vue';
-import { API_ROUTES } from './api';
-import type { IProfile } from './interfaces/profile.interface';
-import { useProfileStore } from './stores/profile.store';
-
-const store = useProfileStore();
-
-async function fetchProfile() {
-  const data = await fetch(API_ROUTES.profile);
-  const res = await data.json() as IProfile;
-  store.profileData = res;
-};
-
-onMounted(() =>{
-  fetchProfile()
-});
 </script>
 
 <template>
   <main class="main">
-    <Profile v-if="store.profileData" :name="store.profileData?.name"/>
+     <Profile/>
     <div class="panel">
       <nav class="nav">
         <ul>
