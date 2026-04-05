@@ -1,20 +1,14 @@
 <script setup lang="ts">
 import Profile from './components/Profile.vue';
+import Categories from './components/Categories.vue';
 </script>
 
 <template>
   <main class="main">
-     <Profile/>
     <div class="panel">
-      <nav class="nav">
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-        </ul>
-      </nav>  
-    </div>    
+      <Profile/>
+      <Categories/>
+    </div>
     <div class="content">
       Контент
     </div>

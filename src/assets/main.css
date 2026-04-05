@@ -1,13 +1,21 @@
 @import 'normalize.css';
+
 :root{
   --background-color: #fff;
   --primary-color: #000;
   --card-color:#1c1c1c;
   --inactive-item-color:rgba(28,28,28,0.40);
 }
+
 body {
   background-color: var(--background-color);
   color:var(--primary-color);
   font-family: "Roboto", sans-serif;
   font-size: 14px;
+}
+
+.list-reset{
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
