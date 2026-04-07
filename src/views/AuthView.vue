@@ -6,9 +6,6 @@ const router = useRouter();
 function redirectToMain(){
     router.push({
         name:'main',
-        query: {
-            q: '12312'
-        },
     })
 }
 </script>
@@ -17,8 +14,7 @@ function redirectToMain(){
         <h1 class="auth__logo">
             Bookmarkly
         </h1>
-        <RouterLink class="auth__btn" to="/main">Войти</RouterLink>
-        <button @click="redirectToMain()">войти</button>
+        <button @click="redirectToMain()" class="auth__btn">войти</button>
     </div>
 </template>
 <style scoped>
@@ -46,6 +42,7 @@ function redirectToMain(){
     color: var(--background-color);
     text-decoration: none;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 
 }
 

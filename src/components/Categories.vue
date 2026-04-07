@@ -14,7 +14,8 @@ onMounted(() => {
     <div class="category">
         <ul class="category__list list-reset">
             <li class="category__item" v-for="category in store.categories" :key="category.id">
-                <RouterLink active-class="category__active" :to="`/main/${category.alias}`">{{ category.name }}
+                <RouterLink active-class="category__active" :to="`/main/${category.alias}`">
+                    {{ category.name }}
                 </RouterLink>
             </li>
         </ul>

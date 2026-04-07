@@ -20,6 +20,6 @@ import Categories from '../components/Categories.vue';
   max-width: 1450px;
 }
 .panel{
-  min-width: 400px;
+  min-width: 320px;
 }
 </style>

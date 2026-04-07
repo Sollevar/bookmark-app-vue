@@ -8,10 +8,10 @@ export const router = createRouter({
             path: '/main', component:() => import ('./views/MainView.vue'),
             children: [
                 {
-                    path: '', component: () => import('./components/Main.vue'), name:'main'
+                    path: '', component: () => import('./views/IndexView.vue'), name:'main'
                 },
                 {
-                    path: 'films', component:() => import ('./components/Second.vue'),
+                    path: ':alias', component:() => import ('./views/CategoryView.vue'),
                 }
             ]
         }
