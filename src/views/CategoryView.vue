@@ -21,3 +21,6 @@ watch(currentCategory, ()=>{
     {{ currentCategory?.name }}
     {{ bookmarkStore.bookmarks }}
 </template>
+
+<style scoped lang="scss">
+</style>

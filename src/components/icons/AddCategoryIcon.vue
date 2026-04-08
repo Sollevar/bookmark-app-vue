@@ -1,7 +1,3 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
     <svg width="118" height="118" viewBox="0 0 118 118" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M59 39.3333V78.6666M78.6667 59H39.3334" stroke="#000000" stroke-width="8.5" stroke-linecap="round"

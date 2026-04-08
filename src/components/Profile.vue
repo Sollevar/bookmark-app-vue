@@ -4,8 +4,8 @@ import { onMounted } from 'vue';
 
 const store = useProfileStore();
 
-onMounted(() =>{
-  store.fetchProfile();
+onMounted(() => {
+    store.fetchProfile();
 });
 </script>
 
@@ -18,16 +18,17 @@ onMounted(() =>{
     </div>
 </template>
 
-<style scoped>
-.profile{
+<style scoped lang="scss">
+.profile {
     display: flex;
     flex-direction: column;
     gap: 24px;
     font-size: 18px;
-}
-.profile__image{
-    width: 80px;
-    height: 80px;
-    border-radius: 100%;
+
+    &__image {
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+    }
 }
 </style>

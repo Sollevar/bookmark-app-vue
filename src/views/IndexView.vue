@@ -9,25 +9,25 @@
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .index {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
 
-.index__title{
-    margin: 0;
-    margin-bottom: 25px;
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--card-color);
-}
+    &__title {
+        margin: 0;
+        margin-bottom: 25px;
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--card-color);
+    }
 
-.index__descr{
-    margin: 0;
-    font-size: 16px;
-    color: var(--card-color);
+    &__descr {
+        margin: 0;
+        font-size: 16px;
+        color: var(--card-color);
+    }
 }
 </style>

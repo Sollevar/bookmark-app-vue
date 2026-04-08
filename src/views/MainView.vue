@@ -13,7 +13,7 @@ import Categories from '../components/Categories.vue';
   </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .main{
   margin: 140px auto 0 auto;
   display: flex;

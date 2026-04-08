@@ -23,43 +23,48 @@ onMounted(() => {
     </div>
 </template>
 
-<style scoped>
-
-.category{
+<style scoped lang="scss">
+.category {
     display: flex;
     flex-direction: column;
-}
 
-.category__list {
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
+    &__list {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
 
-.category__item:not(:last-child) {
-    margin-bottom: 34px;
-}
+    &__item {
+        a {
+            font-size: 14px;
+            color: var(--card-color);
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
 
-.category__item a {
-    font-size: 14px;
-    color: var(--card-color);
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-}
+            &:hover {
+                font-size: 24px;
+                font-weight: 700;
+            }
+        }
 
-.category__item a:hover,
-.category__item a.category__active {
-    font-size: 24px;
-    font-weight: 700;
-}
+        &:not(:last-child) {
+            margin-bottom: 34px;
+        }
+    }
 
-.category__icon {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
+    a.category__active {
+        font-size: 24px;
+        font-weight: 700;
+    }
 
-.category__icon:hover{
-    scale: 1.2;
+    &__icon {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            scale: 1.2;
+        }
+    }
 }
 </style>
