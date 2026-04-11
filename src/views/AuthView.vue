@@ -1,12 +1,28 @@
 <script setup lang="ts">
+import { useAuthStore } from "@/stores/auth.store";
 import Input from "../components/Input.vue"
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
+import { useRouter } from "vue-router";
 
-const form = ref<{email?:string, password?:string}>({});
-function onSubmit(){
+const form = ref<{ email?: string, password?: string }>({});
+const authStore = useAuthStore();
+const router = useRouter();
+watch(
+    () => authStore.getToken,
+    () => {
+        if(authStore.getToken){
+            router.push({name:'main'});
+        }
+    }
+)
+function onSubmit() {
+    if (!form.value.email || !form.value.password) {
+        return
+    }
+    authStore.login(form.value.email, form.value.password);
     form.value = {};
 }
-
+// email a@a.ru password 1
 
 </script>
 <template>
@@ -15,8 +31,8 @@ function onSubmit(){
             Bookmarkly
         </h1>
         <form class="auth__form" @submit.prevent="onSubmit">
-            <Input type="email" placeholder="Email" v-model="form.email"/>
-            <Input type="password" placeholder="Password" v-model="form.password"/>
+            <Input type="email" placeholder="Email" v-model="form.email" />
+            <Input type="password" placeholder="Password" v-model="form.password" />
             <button class="auth__btn" type="submit">Войти</button>
         </form>
     </div>
@@ -36,7 +52,7 @@ function onSubmit(){
         font-weight: 700;
     }
 
-    &__form{
+    &__form {
         display: flex;
         flex-direction: column;
         gap: 40px;
