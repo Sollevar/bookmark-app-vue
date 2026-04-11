@@ -1,20 +1,24 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import Input from "../components/Input.vue"
+import { ref } from 'vue';
 
-const router = useRouter();
-
-function redirectToMain() {
-    router.push({
-        name: 'main',
-    })
+const form = ref<{email?:string, password?:string}>({});
+function onSubmit(){
+    form.value = {};
 }
+
+
 </script>
 <template>
     <div class="auth">
         <h1 class="auth__logo">
             Bookmarkly
         </h1>
-        <button @click="redirectToMain()" class="auth__btn">войти</button>
+        <form class="auth__form" @submit.prevent="onSubmit">
+            <Input type="email" placeholder="Email" v-model="form.email"/>
+            <Input type="password" placeholder="Password" v-model="form.password"/>
+            <button class="auth__btn" type="submit">Войти</button>
+        </form>
     </div>
 </template>
 <style scoped lang="scss">
@@ -32,9 +36,17 @@ function redirectToMain() {
         font-weight: 700;
     }
 
+    &__form{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+
     &__btn {
         padding: 12px 32px;
         display: block;
+        max-width: 105px;
         border-radius: 25px;
         border: 1px solid transparent;
         background-color: var(--primary-color);
