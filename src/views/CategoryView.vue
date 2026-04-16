@@ -1,26 +1,28 @@
 <script lang="ts" setup>
+import CategoryHeader from '@/components/CategoryHeader.vue';
 import { useBookmarkStore } from '@/stores/bookmark.store';
 import { useCategoryStore } from '@/stores/categories.store';
-import { computed, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const categoryStore = useCategoryStore();
-const bookmarkStore = useBookmarkStore()
+const bookmarkStore = useBookmarkStore();
+
 
 const currentCategory = computed(() =>
     categoryStore.getCategoryByAlias(route.params.alias)
 );
 
-watch(currentCategory, ()=>{
+watch(currentCategory, () => {
     bookmarkStore.getCategoryBookmarks(currentCategory.value?.id);
-}, {immediate: true})
+}, { immediate: true })
 </script>
 
 <template>
-    {{ currentCategory?.name }}
-    {{ bookmarkStore.bookmarks }}
+    <CategoryHeader v-if="currentCategory" :currentCategory="currentCategory"/>
 </template>
 
 <style scoped lang="scss">
+
 </style>
