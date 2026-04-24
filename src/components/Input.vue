@@ -2,11 +2,11 @@
 const model = defineModel<string>();
 </script>
 <template>
-    <input class="input" v-model="model">
+    <input class="input" v-model="model" />
 </template>
 <style lang="scss" scoped>
 .input {
-    min-width: 274px;
+    width: 230px;
     border: none;
     border-bottom: 1px solid var(--card-color);
     color: var(--card-color);

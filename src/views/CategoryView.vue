@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import Bookmark from '@/components/Bookmark.vue';
+import BookmarkCreate from '@/components/BookmarkCreate.vue';
 import BookmarkSort from '@/components/BookmarkSort.vue';
 import CategoryHeader from '@/components/CategoryHeader.vue';
 import { useBookmarkStore } from '@/stores/bookmark.store';
@@ -16,7 +17,6 @@ const currentCategory = computed(() =>
 );
 
 function sortBookmarks(sort:string){
-    console.log(sort);
     bookmarkStore.activeSort = sort;
     bookmarkStore.getCategoryBookmarks(currentCategory.value?.id, bookmarkStore.activeSort);
 }
@@ -32,6 +32,7 @@ watch(currentCategory, () => {
         <BookmarkSort :sortKey="bookmarkStore.activeSort" @sort="sortBookmarks"/>
         <div class="category-list">
             <Bookmark v-for="bookmark in bookmarkStore.bookmarks" v-bind="bookmark" :key="bookmark.id"/>
+            <BookmarkCreate v-if="currentCategory" :categoryId="currentCategory?.id"/>
         </div>
     </div>
 </template>
