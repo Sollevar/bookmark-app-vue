@@ -28,7 +28,9 @@ function logout() {
                 </RouterLink>
             </li>
         </ul>
-        <AddCategoryIcon class="category__icon" @click="store.createCategory()" />
+        <button class="button-icon" @click="store.createCategory()">
+            <AddCategoryIcon class="category__icon" />
+        </button>
         <a href="#" class="category__logout" @click="logout">Выход</a>
     </div>
 </template>
@@ -78,11 +80,15 @@ function logout() {
         font-weight: 700;
     }
 
-    &__icon {
+    .button-icon{
         margin-bottom: 34px;
         width: 50px;
         height: 50px;
-        cursor: pointer;
+    }
+
+    &__icon {
+        width: 50px;
+        height: 50px;
         transition: all 0.2s ease-in-out;
 
         &:hover {

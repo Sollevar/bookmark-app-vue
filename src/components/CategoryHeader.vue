@@ -45,8 +45,12 @@ function deleteCategory(){
             {{ currentCategory.name }}
         </span>
         <div class="category-header__tools">
-            <DeleteCategoryIcon @click="deleteCategory" />
-            <EditCategoryIcon @click="toggle" />
+            <button class="button-icon" @click="deleteCategory">
+                <DeleteCategoryIcon />
+            </button>
+            <button class="button-icon" @click="toggle">
+                <EditCategoryIcon />
+            </button>
         </div>
     </div>
 </template>

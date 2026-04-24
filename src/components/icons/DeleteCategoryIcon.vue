@@ -1,8 +1,12 @@
+<script lang="ts" setup>
+const { fill = '#000000' } = defineProps<{fill?:string}>();
+</script>
+
 <template>
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="24.000000pt" height="24.000000pt"
         viewBox="0 0 24.000000 24.000000" preserveAspectRatio="xMidYMid meet">
 
-        <g transform="translate(0.000000,24.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+        <g transform="translate(0.000000,24.000000) scale(0.100000,-0.100000)" :fill="fill" stroke="none">
             <path d="M74 225 c-4 -8 -17 -15 -31 -15 -15 0 -23 -5 -21 -12 6 -18 190 -18
 196 0 2 7 -6 12 -21 12 -14 0 -27 7 -31 15 -3 10 -19 15 -46 15 -27 0 -43 -5
 -46 -15z m76 -5 c0 -5 -13 -10 -30 -10 -16 0 -30 5 -30 10 0 6 14 10 30 10 17
