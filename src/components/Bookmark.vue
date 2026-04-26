@@ -3,13 +3,21 @@ import { useBookmarkStore } from '@/stores/bookmark.store';
 import CopyIcon from './icons/CopyIcon.vue';
 import DeleteCategoryIcon from './icons/DeleteCategoryIcon.vue';
 import type { IBookmark } from "@/interfaces/bookmark.interface";
+import { ref } from 'vue';
+import PopUpConfirm from './PopUpConfirm.vue';
 const { image, title, url, id, category_id } = defineProps<IBookmark>();
 
 function openLink() {
     window.open(url, '_blank');
 };
 
+const isOpen = ref<boolean>(false);
 const bookmarkStore = useBookmarkStore();
+
+function deleteBookmark() {
+    bookmarkStore.deleteBookmark(id, category_id);
+    isOpen.value = false
+}
 
 
 </script>
@@ -21,13 +29,15 @@ const bookmarkStore = useBookmarkStore();
             {{ title }}
         </p>
         <div class="bookmark__buttons">
-            <button class="button-icon" @click="bookmarkStore.deleteBookmark(id, category_id)">
+            <button class="button-icon" @click="isOpen = true">
                 <DeleteCategoryIcon fill="#FFFFFF" />
             </button>
             <button class="button-icon" @click="openLink">
                 <CopyIcon />
             </button>
         </div>
+        <PopUpConfirm :isOpen="isOpen" text="Вы действительно хотите удалить закладку?" @cancel="isOpen = false"
+            @accept="deleteBookmark" />
     </div>
 </template>
 
