@@ -3,24 +3,35 @@ const { isOpen, text } = defineProps<{ isOpen: boolean, text: string }>();
 const emit = defineEmits<{
     (e: 'accept'): void,
     (e: 'cancel'): void
-}>()
+}>();
 </script>
 <template>
-    <Teleport to="body">
-        <div class="popup" v-if="isOpen">
-            <div class="popup__content">
-                <p class="popup__text">
-                    {{ text }}
-                </p>
-                <div class="popup__actions">
-                    <button class="popup__btn" @click="emit('accept')">Да</button>
-                    <button class="popup__btn" @click="emit('cancel')">Нет</button>
+    <Transition name="fade">
+        <Teleport to="body">
+            <div class="popup" v-if="isOpen">
+                <div class="popup__content">
+                    <p class="popup__text">
+                        {{ text }}
+                    </p>
+                    <div class="popup__actions">
+                        <button class="popup__btn" @click="emit('accept')">Да</button>
+                        <button class="popup__btn" @click="emit('cancel')">Нет</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </Teleport>
+        </Teleport>
+    </Transition>
 </template>
 <style lang="scss" scoped>
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-active, .fade-leave-active{
+    transition: opacity 0.3s ease-in-out;
+}
+
 .popup {
     position: fixed;
     top: 0;
@@ -61,7 +72,8 @@ const emit = defineEmits<{
         color: var(--background-color);
         cursor: pointer;
         transition: all 0.2s ease-in-out;
-        &:hover{
+
+        &:hover {
             background-color: var(--background-color);
             color: var(--primary-color);
         }
