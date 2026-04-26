@@ -24,7 +24,7 @@ function createBookmark(){
 <template>
     <div class="create">
         <div class="create__label" v-if="isEdited">
-            <Input placeholder="Вставьте ссылку" v-model="inputBookmark" />
+            <Input placeholder="Вставьте ссылку" v-model="inputBookmark" is-focused />
             <AcceptIcon @click="createBookmark" />
         </div>
         <button class="create__btn" @click="toggle" v-else>
